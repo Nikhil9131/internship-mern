@@ -1,0 +1,1461 @@
+/* ==========================================================================
+   MERNPortal - Vendor Planning Page (Dark Glassmorphism Stylesheet)
+   ========================================================================== */
+
+/* Variables - Ocean Beach Light Theme */
+:root {
+  --vp-bg-dark: #fffbf7; /* Warm light beach sand */
+  --vp-glass-bg: rgba(255, 255, 255, 0.75);
+  --vp-glass-bg-hover: rgba(255, 255, 255, 0.85);
+  --vp-glass-border: rgba(46, 196, 182, 0.15); /* Soft seafoam border */
+  --vp-glass-border-hover: rgba(46, 196, 182, 0.35);
+  --vp-glass-border-active: rgba(46, 196, 182, 0.6);
+  --vp-text-white: #121b36; /* Deep sea navy text */
+  --vp-text-gray: #4d546b; /* Warm slate gray */
+  --vp-text-muted: #81879c; /* Driftwood muted gray */
+  --vp-accent-purple: #0284c7; /* Ocean Blue */
+  --vp-accent-indigo: #2ec4b6; /* Ocean Teal */
+  --vp-accent-green: #10b981; /* Palm Green */
+  --vp-accent-amber: #ff9f1c; /* Sunshine Gold */
+  --vp-accent-red: #dc2626; /* Crimson warning red */
+  --vp-glow-purple: rgba(2, 132, 199, 0.18);
+  --vp-radius: 16px;
+  --vp-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.vendor-planning-scope-root {
+  background-color: var(--vp-bg-dark);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(255, 159, 28, 0.08) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(2, 132, 199, 0.08) 0px, transparent 50%),
+    radial-gradient(at 50% 0%, rgba(46, 196, 182, 0.08) 0px, transparent 50%);
+  color: var(--vp-text-white);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding-bottom: 5rem;
+}
+
+.vendor-planning-scope {
+  width: 100%;
+}
+
+/* 1. Hero Section */
+.vendor-planning-scope .luxury-hero {
+  position: relative;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem 4rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.vendor-planning-scope .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(18, 27, 54, 0.8) 0%, rgba(2, 132, 199, 0.5) 50%, rgba(46, 196, 182, 0.35) 100%),
+              rgba(255, 255, 255, 0.1);
+  z-index: 1;
+}
+
+.vendor-planning-scope .hero-container {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.vendor-planning-scope .hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: var(--vp-text-gray);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+.vendor-planning-scope .badge-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--vp-accent-purple);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--vp-accent-purple);
+}
+
+.vendor-planning-scope .hero-content h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 3.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: var(--vp-text-white);
+}
+
+.vendor-planning-scope .hero-content h1 span {
+  background: linear-gradient(135deg, #0284c7, #2ec4b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+.vendor-planning-scope .hero-content p {
+  font-size: 1.1rem;
+  color: var(--vp-text-gray);
+  max-width: 650px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+}
+
+.vendor-planning-scope .hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.vendor-planning-scope .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.85rem 2rem;
+  background: linear-gradient(135deg, var(--vp-accent-purple), var(--vp-accent-indigo));
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px var(--vp-glow-purple);
+  transition: var(--vp-transition);
+}
+
+.vendor-planning-scope .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4);
+}
+
+.vendor-planning-scope .btn-outline {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.85rem 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--vp-glass-border);
+  color: var(--vp-text-white);
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: var(--vp-transition);
+}
+
+.vendor-planning-scope .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Ensure contrast inside luxury-hero regardless of light theme */
+.vendor-planning-scope .luxury-hero .hero-badge {
+  color: rgba(255, 255, 255, 0.75) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+.vendor-planning-scope .luxury-hero .hero-content h1 {
+  color: #ffffff !important;
+}
+.vendor-planning-scope .luxury-hero .hero-content h1 span {
+  background: linear-gradient(135deg, #ffd05b 0%, #ff9f1c 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  font-weight: 700;
+}
+.vendor-planning-scope .luxury-hero .hero-content p {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+.vendor-planning-scope .luxury-hero .btn-outline {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+.vendor-planning-scope .luxury-hero .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* 2. Planner Navigation / Sticky Tabs */
+.vendor-planning-scope .planner-wrapper {
+  background: rgba(255, 248, 246, 0.85);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 70px;
+  z-index: 100;
+  border-bottom: 1px solid var(--vp-glass-border);
+  padding: 0.75rem 0;
+}
+
+.vendor-planning-scope .planner-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.vendor-planning-scope .planner-nav-inner {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  justify-content: space-between;
+}
+
+.vendor-planning-scope .planner-nav-inner::-webkit-scrollbar {
+  display: none; /* Safari/Chrome */
+}
+
+.vendor-planning-scope .planner-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.5rem 1rem;
+  color: var(--vp-text-gray);
+  text-decoration: none;
+  font-size: 0.85rem;
+  border-radius: 8px;
+  transition: var(--vp-transition);
+  white-space: nowrap;
+}
+
+.vendor-planning-scope .planner-tab span {
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: var(--vp-text-muted);
+}
+
+.vendor-planning-scope .planner-tab strong {
+  font-weight: 500;
+}
+
+.vendor-planning-scope .planner-tab.active {
+  background: rgba(2, 132, 199, 0.08);
+  color: var(--vp-text-white);
+  border: 1px solid rgba(2, 132, 199, 0.25);
+}
+
+.vendor-planning-scope .planner-tab.active span {
+  color: var(--vp-accent-purple);
+}
+
+/* 3. Steps Sections Shared */
+.vendor-planning-scope .planner-section {
+  padding: 5rem 0;
+  border-bottom: 1px solid var(--vp-glass-border);
+}
+
+.vendor-planning-scope .step-header,
+.vendor-planning-scope .step2-heading,
+.vendor-planning-scope .journey-heading,
+.vendor-planning-scope .assumption-heading {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 3rem;
+}
+
+.vendor-planning-scope .step-badge,
+.vendor-planning-scope .step-label,
+.vendor-planning-scope .journey-label,
+.vendor-planning-scope .step-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--vp-accent-purple);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.vendor-planning-scope h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: var(--vp-text-white);
+}
+
+.vendor-planning-scope h2 span {
+  background: linear-gradient(135deg, #0284c7, #2ec4b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+.vendor-planning-scope .step-header p,
+.vendor-planning-scope .step2-heading p,
+.vendor-planning-scope .journey-heading p,
+.vendor-planning-scope .assumption-heading p {
+  font-size: 0.95rem;
+  color: var(--vp-text-gray);
+  line-height: 1.6;
+}
+
+/* 4. Step 1 - Project Selection Grid */
+.vendor-planning-scope .project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.vendor-planning-scope .project-card {
+  background: var(--vp-glass-bg);
+  border: 1px solid var(--vp-glass-border);
+  backdrop-filter: blur(12px);
+  padding: 2rem 1.5rem;
+  border-radius: var(--vp-radius);
+  cursor: pointer;
+  transition: var(--vp-transition);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.vendor-planning-scope .project-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--vp-glass-border-hover);
+  background: var(--vp-glass-bg-hover);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.vendor-planning-scope .project-card.active {
+  background: rgba(2, 132, 199, 0.08);
+  border-color: var(--vp-glass-border-active);
+  box-shadow: 0 0 25px var(--vp-glow-purple);
+}
+
+.vendor-planning-scope .project-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  transition: var(--vp-transition);
+}
+
+.vendor-planning-scope .project-card:hover .project-icon {
+  transform: scale(1.1);
+}
+
+/* Unique color schemes for different project types */
+.vendor-planning-scope .project-card:nth-child(1) .project-icon {
+  background: rgba(2, 132, 199, 0.12);
+  color: #0284c7;
+}
+.vendor-planning-scope .project-card:nth-child(1):hover .project-icon,
+.vendor-planning-scope .project-card:nth-child(1).active .project-icon {
+  background: linear-gradient(135deg, #0284c7, #0369a1) !important;
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
+}
+
+.vendor-planning-scope .project-card:nth-child(2) .project-icon {
+  background: rgba(249, 115, 22, 0.12);
+  color: #f97316;
+}
+.vendor-planning-scope .project-card:nth-child(2):hover .project-icon,
+.vendor-planning-scope .project-card:nth-child(2).active .project-icon {
+  background: linear-gradient(135deg, #f97316, #ea580c) !important;
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(234, 88, 12, 0.4);
+}
+
+.vendor-planning-scope .project-card:nth-child(3) .project-icon {
+  background: rgba(168, 85, 247, 0.12);
+  color: #a855f7;
+}
+.vendor-planning-scope .project-card:nth-child(3):hover .project-icon,
+.vendor-planning-scope .project-card:nth-child(3).active .project-icon {
+  background: linear-gradient(135deg, #a855f7, #7c3aed) !important;
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+}
+
+.vendor-planning-scope .project-card:nth-child(4) .project-icon {
+  background: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+}
+.vendor-planning-scope .project-card:nth-child(4):hover .project-icon,
+.vendor-planning-scope .project-card:nth-child(4).active .project-icon {
+  background: linear-gradient(135deg, #10b981, #047857) !important;
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
+
+.vendor-planning-scope .project-card:nth-child(5) .project-icon {
+  background: rgba(244, 63, 94, 0.12);
+  color: #f43f5e;
+}
+.vendor-planning-scope .project-card:nth-child(5):hover .project-icon,
+.vendor-planning-scope .project-card:nth-child(5).active .project-icon {
+  background: linear-gradient(135deg, #f43f5e, #be123c) !important;
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(244, 63, 94, 0.4);
+}
+
+.vendor-planning-scope .project-card:nth-child(6) .project-icon {
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+}
+.vendor-planning-scope .project-card:nth-child(6):hover .project-icon,
+.vendor-planning-scope .project-card:nth-child(6).active .project-icon {
+  background: linear-gradient(135deg, #ef4444, #b91c1c) !important;
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+}
+
+.vendor-planning-scope .project-card:nth-child(7) .project-icon {
+  background: rgba(234, 179, 8, 0.12);
+  color: #eab308;
+}
+.vendor-planning-scope .project-card:nth-child(7):hover .project-icon,
+.vendor-planning-scope .project-card:nth-child(7).active .project-icon {
+  background: linear-gradient(135deg, #eab308, #ca8a04) !important;
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(234, 179, 8, 0.4);
+}
+
+.vendor-planning-scope .project-card h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  color: var(--vp-text-white);
+}
+
+.vendor-planning-scope .project-card p {
+  font-size: 0.85rem;
+  color: var(--vp-text-gray);
+  line-height: 1.5;
+}
+
+/* 5. Project Details Panel */
+.vendor-planning-scope .project-details-card {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--vp-glass-border);
+  backdrop-filter: blur(16px);
+  border-radius: var(--vp-radius);
+  padding: 3rem 2.5rem;
+  box-shadow: 0 10px 40px rgba(2, 132, 199, 0.05);
+}
+
+.vendor-planning-scope .details-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--vp-glass-border);
+  padding-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.vendor-planning-scope .details-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.vendor-planning-scope .details-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(2, 132, 199, 0.12);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--vp-accent-purple);
+  font-size: 1.6rem;
+}
+
+.vendor-planning-scope .details-heading h2 {
+  font-size: 1.75rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.vendor-planning-scope .details-heading p {
+  font-size: 0.9rem;
+  color: var(--vp-text-gray);
+}
+
+.vendor-planning-scope .staffing-chip {
+  background: rgba(46, 196, 182, 0.1);
+  border: 1px solid rgba(46, 196, 182, 0.25);
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.vendor-planning-scope .staffing-chip span {
+  font-size: 0.7rem;
+  color: var(--vp-accent-indigo);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.vendor-planning-scope .staffing-chip strong {
+  font-size: 0.9rem;
+  color: var(--vp-text-white);
+}
+
+.vendor-planning-scope .details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.vendor-planning-scope .info-box {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--vp-glass-border);
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.vendor-planning-scope .box-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.vendor-planning-scope .box-head h4 {
+  font-size: 1.1rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  color: var(--vp-text-white);
+}
+
+/* Warnings */
+.vendor-planning-scope .warning-box {
+  border-left: 4px solid var(--vp-accent-red);
+}
+
+.vendor-planning-scope .warning-box .box-head i {
+  color: var(--vp-accent-red);
+}
+
+.vendor-planning-scope .warning-box ul li {
+  font-size: 0.85rem;
+  color: var(--vp-text-gray);
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+  list-style: disc;
+  margin-left: 1.2rem;
+}
+
+/* Risks */
+.vendor-planning-scope .risk-box {
+  border-left: 4px solid var(--vp-accent-amber);
+}
+
+.vendor-planning-scope .risk-box .box-head i {
+  color: var(--vp-accent-amber);
+}
+
+.vendor-planning-scope .risk-box ul li {
+  font-size: 0.85rem;
+  color: var(--vp-text-gray);
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+  list-style: square;
+  margin-left: 1.2rem;
+}
+
+/* Vendors & Experts Chips */
+.vendor-planning-scope .vendor-box .box-head i {
+  color: var(--vp-accent-purple);
+}
+
+.vendor-planning-scope .chip-group,
+.vendor-planning-scope .expert-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.vendor-planning-scope .chip-group span {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--vp-text-gray);
+  padding: 6px 12px;
+  border-radius: 30px;
+  font-size: 0.75rem;
+}
+
+.vendor-planning-scope .expert-title {
+  font-size: 0.85rem;
+  color: var(--vp-text-white);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.vendor-planning-scope .expert-list span {
+  background: rgba(2, 132, 199, 0.08);
+  border: 1px solid rgba(2, 132, 199, 0.2);
+  color: var(--vp-accent-purple);
+  padding: 6px 12px;
+  border-radius: 30px;
+  font-size: 0.75rem;
+}
+
+/* Highlights Stats */
+.vendor-planning-scope .project-highlights {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  border-top: 1px solid var(--vp-glass-border);
+  border-bottom: 1px solid var(--vp-glass-border);
+  padding: 2rem 0;
+}
+
+.vendor-planning-scope .highlight {
+  text-align: center;
+}
+
+.vendor-planning-scope .highlight h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--vp-accent-purple);
+  margin-bottom: 0.5rem;
+}
+
+.vendor-planning-scope .highlight p {
+  font-size: 0.8rem;
+  color: var(--vp-text-gray);
+}
+
+.vendor-planning-scope .details-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+/* 6. Step 2 - Planning Numbers Grid */
+.vendor-planning-scope .step2-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.vendor-planning-scope .planning-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.vendor-planning-scope .plan-card {
+  background: var(--vp-glass-bg);
+  border: 1px solid var(--vp-glass-border);
+  backdrop-filter: blur(12px);
+  border-radius: var(--vp-radius);
+  padding: 2rem 1.5rem;
+  transition: var(--vp-transition);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+}
+
+.vendor-planning-scope .plan-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--vp-glass-border-hover);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.vendor-planning-scope .card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vendor-planning-scope .plan-card .icon-box {
+  width: 40px;
+  height: 40px;
+  background: rgba(2, 132, 199, 0.08);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--vp-accent-purple);
+}
+
+.vendor-planning-scope .plan-card .info {
+  font-size: 1rem;
+  color: var(--vp-text-muted);
+  cursor: pointer;
+  transition: var(--vp-transition);
+}
+
+.vendor-planning-scope .plan-card .info:hover {
+  color: var(--vp-accent-purple);
+}
+
+.vendor-planning-scope .plan-card small {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--vp-text-muted);
+  letter-spacing: 1px;
+}
+
+.vendor-planning-scope .plan-card h3 {
+  font-size: 1.6rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  color: var(--vp-text-white);
+  margin: 0.25rem 0;
+}
+
+.vendor-planning-scope .plan-card p {
+  font-size: 0.8rem;
+  color: var(--vp-text-gray);
+  line-height: 1.5;
+}
+
+.vendor-planning-scope .assumption-btn {
+  background: transparent;
+  border: none;
+  color: var(--vp-accent-purple);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  width: fit-content;
+  transition: var(--vp-transition);
+}
+
+.vendor-planning-scope .assumption-btn:hover {
+  color: var(--vp-text-white);
+}
+
+.vendor-planning-scope .planning-note {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: rgba(245, 158, 11, 0.05);
+  border: 1px solid rgba(245, 158, 11, 0.15);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.vendor-planning-scope .planning-note i {
+  color: var(--vp-accent-amber);
+  font-size: 1.25rem;
+}
+
+.vendor-planning-scope .planning-note h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--vp-text-white);
+}
+
+.vendor-planning-scope .planning-note p {
+  font-size: 0.85rem;
+  color: var(--vp-text-gray);
+  line-height: 1.5;
+}
+
+/* 7. Step 3 - Project Journey Roadmap */
+.vendor-planning-scope .journey-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+}
+
+.vendor-planning-scope .journey-tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scrollbar-width: none;
+}
+
+.vendor-planning-scope .journey-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.vendor-planning-scope .journey-tab {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--vp-glass-border);
+  padding: 1.25rem 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: var(--vp-transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 100px;
+  flex: 1;
+}
+
+.vendor-planning-scope .journey-tab:hover {
+  background: var(--vp-glass-bg-hover);
+  border-color: var(--vp-glass-border-hover);
+}
+
+.vendor-planning-scope .journey-tab.active {
+  background: rgba(2, 132, 199, 0.12);
+  border-color: var(--vp-accent-purple);
+  box-shadow: 0 0 15px var(--vp-glow-purple);
+}
+
+.vendor-planning-scope .journey-tab .step-no {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--vp-text-muted);
+}
+
+.vendor-planning-scope .journey-tab.active .step-no {
+  color: var(--vp-accent-purple);
+}
+
+.vendor-planning-scope .journey-tab .step-icon {
+  font-size: 1.2rem;
+  color: var(--vp-text-gray);
+}
+
+.vendor-planning-scope .journey-tab.active .step-icon {
+  color: var(--vp-text-white);
+}
+
+.vendor-planning-scope .journey-tab .step-text {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--vp-text-gray);
+}
+
+.vendor-planning-scope .journey-tab.active .step-text {
+  color: var(--vp-text-white);
+}
+
+.vendor-planning-scope .journey-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.vendor-planning-scope .journey-card {
+  background: var(--vp-glass-bg);
+  border: 1px solid var(--vp-glass-border);
+  border-radius: var(--vp-radius);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.vendor-planning-scope .card-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--vp-accent-purple);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.vendor-planning-scope .journey-card h3 {
+  font-size: 1.25rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  color: var(--vp-text-white);
+}
+
+.vendor-planning-scope .journey-card p {
+  font-size: 0.85rem;
+  color: var(--vp-text-gray);
+  line-height: 1.6;
+}
+
+.vendor-planning-scope .journey-card ul li {
+  font-size: 0.85rem;
+  color: var(--vp-text-gray);
+  margin-bottom: 0.5rem;
+}
+
+.vendor-planning-scope .output-box {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vendor-planning-scope .output-box i {
+  color: var(--vp-accent-purple);
+  font-size: 1.5rem;
+}
+
+.vendor-planning-scope .output-box strong {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--vp-text-muted);
+}
+
+.vendor-planning-scope .output-box p {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--vp-text-white);
+  margin: 0;
+}
+
+.vendor-planning-scope .journey-card.decision-card {
+  border: 1px solid rgba(2, 132, 199, 0.15);
+  background: radial-gradient(circle at top right, rgba(2, 132, 199, 0.05), var(--vp-glass-bg));
+}
+
+.vendor-planning-scope .expert-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--vp-accent-purple), var(--vp-accent-indigo));
+  color: var(--vp-text-white);
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: var(--vp-transition);
+  margin-top: auto;
+}
+
+.vendor-planning-scope .expert-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px var(--vp-glow-purple);
+}
+
+.vendor-planning-scope .decision-flow {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--vp-glass-border);
+  border-radius: var(--vp-radius);
+  padding: 2rem;
+}
+
+.vendor-planning-scope .decision-flow h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--vp-text-white);
+}
+
+.vendor-planning-scope .flow-table {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.vendor-planning-scope .flow-row {
+  display: flex;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 12px;
+  gap: 1.5rem;
+}
+
+.vendor-planning-scope .flow-row:last-child {
+  border: none;
+  padding-bottom: 0;
+}
+
+.vendor-planning-scope .flow-stage {
+  width: 140px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--vp-accent-purple);
+}
+
+.vendor-planning-scope .flow-text {
+  flex: 1;
+  font-size: 0.85rem;
+  color: var(--vp-text-gray);
+  line-height: 1.5;
+}
+
+/* 8. Step 4 - Assumptions & Live Search */
+.vendor-planning-scope .assumption-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.vendor-planning-scope .assumption-search {
+  max-width: 500px;
+  margin: 0 auto 3rem;
+}
+
+.vendor-planning-scope .assumption-search input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--vp-glass-border);
+  color: var(--vp-text-white);
+  padding: 1rem 1.5rem 1rem 3rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  transition: var(--vp-transition);
+}
+
+.vendor-planning-scope .assumption-search input:focus {
+  outline: none;
+  border-color: var(--vp-accent-purple);
+  box-shadow: 0 0 15px rgba(2, 132, 199, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.vendor-planning-scope .assumption-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.vendor-planning-scope .assumption-card {
+  background: var(--vp-glass-bg);
+  border: 1px solid var(--vp-glass-border);
+  border-radius: var(--vp-radius);
+  padding: 2rem 1.5rem;
+  transition: var(--vp-transition);
+}
+
+.vendor-planning-scope .assumption-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--vp-glass-border-hover);
+}
+
+.vendor-planning-scope .card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.vendor-planning-scope .assumption-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--vp-text-white);
+}
+
+.vendor-planning-scope .status {
+  font-size: 0.65rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.vendor-planning-scope .status.verified {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--vp-accent-green);
+}
+
+.vendor-planning-scope .status.green {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--vp-accent-green);
+}
+
+.vendor-planning-scope .status.stable {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--vp-accent-blue);
+}
+
+.vendor-planning-scope .status.blue {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--vp-accent-blue);
+}
+
+.vendor-planning-scope .status.official {
+  background: rgba(46, 196, 182, 0.1);
+  color: var(--vp-accent-indigo);
+}
+
+.vendor-planning-scope .status.planning {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--vp-accent-amber);
+}
+
+.vendor-planning-scope .assumption-card h4 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--vp-text-white);
+  margin-bottom: 0.5rem;
+}
+
+.vendor-planning-scope .assumption-card p {
+  font-size: 0.8rem;
+  color: var(--vp-text-gray);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  height: 2.5rem;
+}
+
+.vendor-planning-scope .badge-row {
+  display: flex;
+  gap: 6px;
+}
+
+.vendor-planning-scope .badge-row span {
+  font-size: 0.65rem;
+  color: var(--vp-text-muted);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.vendor-planning-scope .assumption-note {
+  display: flex;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid var(--vp-glass-border);
+  border-radius: var(--vp-radius);
+  padding: 1.5rem;
+}
+
+.vendor-planning-scope .assumption-note i {
+  color: var(--vp-accent-purple);
+  font-size: 1.25rem;
+}
+
+.vendor-planning-scope .assumption-note h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--vp-text-white);
+}
+
+.vendor-planning-scope .assumption-note p {
+  font-size: 0.85rem;
+  color: var(--vp-text-gray);
+  line-height: 1.5;
+}
+
+/* 9. Glass Modal Overlay & Pane */
+.vendor-planning-scope .assumption-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(30, 37, 64, 0.6);
+  backdrop-filter: blur(16px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.vendor-planning-scope .assumption-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.vendor-planning-scope .assumption-modal {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--vp-glass-border);
+  max-width: 650px;
+  width: 90%;
+  border-radius: var(--vp-radius);
+  padding: 2.5rem;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(2, 132, 199, 0.15);
+  transform: translateY(20px);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.vendor-planning-scope .assumption-modal-overlay.active .assumption-modal {
+  transform: translateY(0);
+}
+
+.vendor-planning-scope .assumption-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: transparent;
+  border: none;
+  color: var(--vp-text-gray);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: var(--vp-transition);
+}
+
+.vendor-planning-scope .assumption-close:hover {
+  color: var(--vp-accent-purple);
+}
+
+.vendor-planning-scope .assumption-header {
+  margin-bottom: 2rem;
+}
+
+.vendor-planning-scope .modal-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--vp-accent-purple);
+  letter-spacing: 1px;
+}
+
+.vendor-planning-scope .assumption-header h2 {
+  font-size: 1.8rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+.vendor-planning-scope .modal-block h4 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--vp-text-muted);
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.vendor-planning-scope .modal-block p {
+  font-size: 0.85rem;
+  color: var(--vp-text-gray);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.vendor-planning-scope .selected-range {
+  background: rgba(2, 132, 199, 0.08);
+  border: 1px solid rgba(2, 132, 199, 0.2);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.vendor-planning-scope .selected-range span {
+  font-size: 0.7rem;
+  color: var(--vp-accent-purple);
+  font-weight: 700;
+}
+
+.vendor-planning-scope .selected-range h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--vp-text-white);
+  margin-top: 4px;
+}
+
+.vendor-planning-scope .range-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--vp-text-muted);
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.vendor-planning-scope .range-table {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 2rem;
+}
+
+.vendor-planning-scope .range-row {
+  display: flex;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.vendor-planning-scope .range-left {
+  color: var(--vp-text-white);
+}
+
+.vendor-planning-scope .range-right {
+  color: var(--vp-text-gray);
+  font-weight: 600;
+}
+
+.vendor-planning-scope .drivers-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.vendor-planning-scope .driver-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--vp-glass-border);
+  padding: 1.2rem;
+  border-radius: 8px;
+}
+
+.vendor-planning-scope .driver-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.vendor-planning-scope .driver-card ul li {
+  font-size: 0.75rem;
+  color: var(--vp-text-gray);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+  list-style: circle;
+  margin-left: 1rem;
+}
+
+.vendor-planning-scope .assumption-warning {
+  background: rgba(239, 68, 68, 0.05);
+  border: 1px solid rgba(239, 68, 68, 0.15);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+}
+
+.vendor-planning-scope .assumption-warning strong {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--vp-accent-red);
+  margin-bottom: 4px;
+}
+
+.vendor-planning-scope .assumption-warning p {
+  font-size: 0.8rem;
+  color: var(--vp-text-gray);
+  line-height: 1.4;
+}
+
+/* 10. Footer layout */
+.vendor-planning-scope .innsight-footer {
+  background: rgba(46, 196, 182, 0.05);
+  border-top: 1px solid var(--vp-glass-border);
+  padding: 4rem 1.5rem 3rem;
+  margin-top: 5rem;
+}
+
+.vendor-planning-scope .footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 4rem;
+}
+
+.vendor-planning-scope .footer-brand h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.8rem;
+  color: var(--vp-text-white);
+  margin-bottom: 0.5rem;
+}
+
+.vendor-planning-scope .footer-brand h4 {
+  font-size: 0.8rem;
+  color: var(--vp-accent-purple);
+  margin-bottom: 1.5rem;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+}
+
+.vendor-planning-scope .footer-brand p {
+  font-size: 0.8rem;
+  color: var(--vp-text-muted);
+  line-height: 1.6;
+}
+
+.vendor-planning-scope .footer-col h5 {
+  font-size: 0.75rem;
+  color: var(--vp-text-white);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.vendor-planning-scope .footer-col a {
+  display: block;
+  color: var(--vp-text-gray);
+  text-decoration: none;
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+  transition: var(--vp-transition);
+}
+
+.vendor-planning-scope .footer-col a:hover {
+  color: var(--vp-accent-purple);
+  transform: translateX(3px);
+}
+
+/* Responsiveness */
+@media (max-width: 991px) {
+  .vendor-planning-scope .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+  
+  .vendor-planning-scope .project-highlights {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .vendor-planning-scope .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .vendor-planning-scope .details-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .vendor-planning-scope .project-highlights {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .vendor-planning-scope .drivers-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 575px) {
+  .vendor-planning-scope .footer-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .vendor-planning-scope .project-highlights {
+    grid-template-columns: 1fr;
+  }
+  
+  .vendor-planning-scope .btn-primary,
+  .vendor-planning-scope .btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
+}
