@@ -32,10 +32,19 @@ const registerUser = asyncHandler(async (req, res) => {
     10
   );
 
+  const adminEmails = [
+    "nikhilrathore@gmail.com",
+    "nikhilrathore10b@gmail.com",
+    ...(process.env.ADMIN_EMAIL ? process.env.ADMIN_EMAIL.toLowerCase().split(",") : [])
+  ];
+
+  const role = adminEmails.includes(normalizedEmail) ? "admin" : "user";
+
   const user = await User.create({
     name,
     email: normalizedEmail,
     password: hashedPassword,
+    role,
   });
 
   res.status(201).json({
@@ -83,6 +92,17 @@ const loginUser = asyncHandler(async (req, res) => {
       "Invalid email or password",
       401
     );
+  }
+
+  const adminEmails = [
+    "nikhilrathore@gmail.com",
+    "nikhilrathore10b@gmail.com",
+    ...(process.env.ADMIN_EMAIL ? process.env.ADMIN_EMAIL.toLowerCase().split(",") : [])
+  ];
+
+  if (adminEmails.includes(normalizedEmail) && user.role !== "admin") {
+    user.role = "admin";
+    await user.save();
   }
 
   const token = jwt.sign(
