@@ -56,8 +56,8 @@ const Navbar = () => {
         </li>
         <li>
           <Link
-            to="/vendor-planing"
-            className={`nav-link ${isActive("/vendor-planing") ? "active" : ""}`}
+            to="/vendor-planning"
+            className={`nav-link ${isActive("/vendor-planning") ? "active" : ""}`}
           >
             Vendor Planning
           </Link>

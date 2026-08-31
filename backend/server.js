@@ -64,19 +64,18 @@ app.use(errorHandler);
 
 const PORT = env.PORT;
 
+// ================= START SERVER =================
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
 // ================= DATABASE =================
 
 connectDB()
   .then(() => {
-    app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
-    });
+    console.log("Database ready");
   })
   .catch((error) => {
-    console.error(
-      "Failed to start server:",
-      error.message
-    );
-
-    process.exit(1);
+    console.error("Failed to connect to database:", error.message);
   });

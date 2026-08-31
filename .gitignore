@@ -16,6 +16,12 @@ pnpm-debug.log*
 .env.test.local
 .env.production.local
 *.env
+-nikhil.env
+
+# Database local storage
+mongodb_data/
+*.wt
+*.bson
 
 # Build outputs
 /frontend/dist/
@@ -35,3 +41,4 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
+
