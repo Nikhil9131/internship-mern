@@ -6,7 +6,8 @@
   <img src="https://img.shields.io/badge/Node.js-24.x-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
   <img src="https://img.shields.io/badge/Express-4.21-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express" />
   <img src="https://img.shields.io/badge/MongoDB-7.0+-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
-  <img src="https://img.shields.io/badge/Render-Deployed-46E3B7?style=for-the-badge&logo=render&logoColor=white" alt="Render" />
+  <img src="https://img.shields.io/badge/Vercel-Frontend%20Live-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
+  <img src="https://img.shields.io/badge/Render-Backend%20Live-46E3B7?style=for-the-badge&logo=render&logoColor=white" alt="Render" />
 </p>
 
 <p align="center">
@@ -15,10 +16,14 @@
 
 ---
 
-## 🌟 Live Demo
+## 🌟 Live Demo & Deployment
 
-- **Frontend Application:** [https://sol-sands.onrender.com](https://sol-sands.onrender.com) *(or your deployed Render static site)*
-- **Backend API Server:** [https://internship-mern.onrender.com](https://internship-mern.onrender.com)
+| Resource | Platform | URL |
+| :--- | :--- | :--- |
+| **Frontend Application** | **Vercel** | [https://sol-and-sands.vercel.app](https://sol-and-sands.vercel.app) |
+| **Backend REST API** | **Render** | [https://internship-mern.onrender.com](https://internship-mern.onrender.com) |
+| **API Health & Test Route** | **Render** | [https://internship-mern.onrender.com/api](https://internship-mern.onrender.com/api) |
+| **GitHub Repository** | **GitHub** | [https://github.com/Nikhil9131/internship-mern](https://github.com/Nikhil9131/internship-mern) |
 
 ---
 
@@ -33,7 +38,9 @@
   - [Backend Setup](#1-backend-setup)
   - [Frontend Setup](#2-frontend-setup)
 - [API Endpoints Overview](#-api-endpoints-overview)
-- [Deployment Guide (Render)](#-deployment-guide-render)
+- [Deployment Guide (Vercel & Render)](#-deployment-guide-vercel--render)
+  - [Frontend Deployment (Vercel)](#1-frontend-deployment-vercel)
+  - [Backend Deployment (Render)](#2-backend-deployment-render)
 - [License](#-license)
 
 ---
@@ -69,13 +76,25 @@
 
 ```mermaid
 graph TD
-    Client["React 19 Client (Vite + React Router)"]
-    API["Express.js REST API (Node.js)"]
-    DB[("MongoDB / Atlas Database")]
-    Auth["JWT Authentication & Rate Limiting"]
+    User["End User / Browser"]
+    subgraph Vercel_Cloud["Vercel Edge Network (Frontend)"]
+        VercelSPA["React 19 + Vite SPA<br/>sol-and-sands.vercel.app"]
+        VercelRewrite["vercel.json SPA Rewrites"]
+    end
+    subgraph Render_Cloud["Render Cloud Platform (Backend)"]
+        API["Express.js REST API (Node.js 24)<br/>internship-mern.onrender.com"]
+        Auth["JWT Authentication & Security Middleware"]
+        RateLimit["Express Rate Limiter & Helmet"]
+    end
+    subgraph DB_Cloud["MongoDB Atlas"]
+        DB[("Cloud Database Cluster")]
+    end
 
-    Client -->|HTTPS Requests with Bearer JWT| API
-    API --> Auth
+    User -->|HTTPS Request| VercelSPA
+    VercelSPA --> VercelRewrite
+    VercelSPA -->|REST API Calls (Bearer JWT)| API
+    API --> RateLimit
+    RateLimit --> Auth
     Auth --> API
     API -->|Mongoose ODM| DB
 ```
@@ -86,11 +105,12 @@ graph TD
 
 | Domain | Technologies |
 | :--- | :--- |
-| **Frontend** | React 19, Vite, React Router v7, Lucide Icons, Custom HSL Ocean-Beach Design System |
+| **Frontend** | React 19, Vite, React Router v7, Lucide Icons, Custom Ocean-Beach HSL Design System |
+| **Frontend Hosting** | **Vercel** (Global Edge CDN, Automatic Git CI/CD, SPA rewrites via `vercel.json`) |
 | **Backend** | Node.js (v24), Express.js, Joi Validation, Helmet Security, Rate Limiter |
-| **Database** | MongoDB, Mongoose ODM, Embedded Mongo Engine Fallback |
+| **Backend Hosting** | **Render** (Cloud Web Service, Auto-deploy from GitHub `main` branch) |
+| **Database** | MongoDB Atlas, Mongoose ODM, Embedded MongoDB engine fallback |
 | **Authentication** | JWT (JSON Web Tokens), BCrypt password hashing |
-| **Cloud Hosting** | Render (Static Site for Frontend + Web Service for Backend) |
 
 ---
 
@@ -99,7 +119,7 @@ graph TD
 ```text
 Internship-MERN/
 ├── backend/
-│   ├── config/             # Database connection & Environment validation
+│   ├── config/             # Database connection (Atlas/Local) & Env validation
 │   ├── controllers/        # User, Product, and Inquiry business logic
 │   ├── middleware/         # Auth (JWT), Rate limiters, Error handling, Joi validation
 │   ├── models/             # Mongoose Schemas (User, Product, Inquiry)
@@ -108,14 +128,17 @@ Internship-MERN/
 │   ├── server.js           # Express application entrypoint
 │   └── package.json        # Backend dependencies & scripts
 ├── frontend/
-│   ├── public/             # Static assets and SPA _redirects rule
+│   ├── public/             # Static assets and favicon
 │   ├── src/
 │   │   ├── components/     # Reusable UI components (Navbar, ProtectedRoutes, etc.)
 │   │   ├── context/        # React AuthContext state management
 │   │   ├── pages/          # Dashboard, Login, Register, Viability, Brand, Subsidy, etc.
-│   │   ├── utils/          # Axios API instance with JWT interceptors
-│   │   ├── App.jsx         # App routing structure
+│   │   ├── utils/          # Axios API instance with auto-environment detection & JWT
+│   │   ├── App.jsx         # Client-side routing configuration
 │   │   └── main.jsx        # Root application renderer
+│   ├── .env.development    # Local development API endpoint (http://localhost:5001/api)
+│   ├── .env.production     # Production API endpoint (https://internship-mern.onrender.com/api)
+│   ├── vercel.json         # Vercel SPA rewrites & build configuration
 │   ├── vite.config.js      # Vite build configuration
 │   └── package.json        # Frontend dependencies & scripts
 ├── package.json            # Root workspace scripts
@@ -198,21 +221,70 @@ npm run dev
 
 ---
 
-## ☁️ Deployment Guide (Render)
+## ☁️ Deployment Guide (Vercel & Render)
 
-### Backend Web Service
-1. Create a **New Web Service** connected to this repository.
-2. Set **Root Directory:** `backend`
-3. Set **Build Command:** `npm install`
-4. Set **Start Command:** `node server.js`
-5. Configure Environment Variables: `NODE_ENV`, `MONGO_URI`, `JWT_SECRET`, `JWT_EXPIRES_IN`.
+This project adopts a decoupled cloud architecture: the **React 19 Vite frontend** is hosted on **Vercel** for edge performance, while the **Express REST API** is hosted on **Render** connecting to **MongoDB Atlas**.
 
-### Frontend Static Site
-1. Create a **New Static Site** connected to this repository.
-2. Set **Root Directory:** `frontend`
-3. Set **Build Command:** `npm install && npm run build`
-4. Set **Publish Directory:** `dist`
-5. Configure Environment Variable: `VITE_API_URL` = `https://<your-backend>.onrender.com/api`
+---
+
+### 1. Frontend Deployment (Vercel)
+
+The frontend is deployed live at **[https://sol-and-sands.vercel.app](https://sol-and-sands.vercel.app)**.
+
+#### Deployment Steps:
+1. **Import Project**: Log in to [Vercel](https://vercel.com) and import the repository (`https://github.com/Nikhil9131/internship-mern.git`).
+2. **Configure Project Settings**:
+   - **Framework Preset:** `Vite`
+   - **Root Directory:** Click "Edit" and choose `frontend`
+   - **Build Command:** `npm run build`
+   - **Output Directory:** `dist`
+   - **Install Command:** `npm install`
+3. **Configure Environment Variables**:
+   In the Vercel dashboard under **Settings → Environment Variables**, add:
+   ```env
+   VITE_API_URL=https://internship-mern.onrender.com/api
+   ```
+4. **SPA Client-Side Routing Configuration (`vercel.json`)**:
+   To ensure client-side routes (e.g. `/project-viability`, `/login`, `/admin`) resolve correctly upon browser refresh without 404 errors, [frontend/vercel.json](file:///c:/Users/nikhi/OneDrive/Desktop/Internship-MERN/frontend/vercel.json) is configured:
+   ```json
+   {
+     "buildCommand": "npm run build",
+     "outputDirectory": "dist",
+     "rewrites": [
+       {
+         "source": "/(.*)",
+         "destination": "/index.html"
+       }
+     ]
+   }
+   ```
+
+---
+
+### 2. Backend Deployment (Render)
+
+The backend API is deployed live at **[https://internship-mern.onrender.com](https://internship-mern.onrender.com)**.
+
+#### Deployment Steps:
+1. **Create Web Service**: Log in to [Render Dashboard](https://dashboard.render.com/) and click **New + → Web Service**.
+2. **Connect Repository**: Select `Nikhil9131/internship-mern`.
+3. **Configure Service Settings**:
+   - **Name:** `internship-mern`
+   - **Root Directory:** `backend`
+   - **Runtime:** `Node`
+   - **Build Command:** `npm install`
+   - **Start Command:** `node server.js`
+4. **Configure Environment Variables**:
+   In the Render dashboard under the **Environment** tab, set:
+   | Key | Example / Recommended Value | Description |
+   | :--- | :--- | :--- |
+   | `NODE_ENV` | `production` | Enables production mode & error handling |
+   | `PORT` | `5001` | Express port (Render automatically routes `$PORT`) |
+   | `MONGO_URI` | `mongodb+srv://<user>:<pass>@cluster.mongodb.net/internship_db?retryWrites=true&w=majority` | Cloud MongoDB Atlas URI |
+   | `JWT_SECRET` | `a_very_long_and_secure_secret_key_minimum_32_characters` | Signing secret for authentication tokens |
+   | `JWT_EXPIRES_IN` | `7d` | Lifetime of issued JWT tokens |
+5. **CORS & Proxy Settings**:
+   The backend includes `app.set("trust proxy", 1)` for Render reverse-proxy rate limiting and dynamic CORS headers enabling queries from `https://sol-and-sands.vercel.app`.
 
 ---
 
