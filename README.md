@@ -21,8 +21,9 @@
 | Resource | Platform | URL |
 | :--- | :--- | :--- |
 | **Frontend Application** | **Vercel** | [https://sol-and-sands.vercel.app](https://sol-and-sands.vercel.app) |
-| **Backend REST API** | **Render** | [https://internship-mern.onrender.com](https://internship-mern.onrender.com) |
-| **API Health & Test Route** | **Render** | [https://internship-mern.onrender.com/api](https://internship-mern.onrender.com/api) |
+| **Backend Root & Health Check** | **Render** | [https://internship-mern.onrender.com/](https://internship-mern.onrender.com/) |
+| **Backend API Base URL** | **Render** | [https://internship-mern.onrender.com/api](https://internship-mern.onrender.com/api) |
+| **Sample Public Endpoint (Products)** | **Render** | [https://internship-mern.onrender.com/api/products](https://internship-mern.onrender.com/api/products) |
 | **GitHub Repository** | **GitHub** | [https://github.com/Nikhil9131/internship-mern](https://github.com/Nikhil9131/internship-mern) |
 
 ---

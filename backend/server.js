@@ -55,14 +55,20 @@ app.use(
 // General API rate limit
 app.use("/api", apiLimiter);
 
-// ================= TEST ROUTE =================
+// ================= TEST & HEALTH CHECK ROUTES =================
 
-app.get("/", (req, res) => {
+const healthHandler = (req, res) => {
   res.status(200).json({
     success: true,
     message: "API is running",
+    status: "healthy",
+    timestamp: new Date().toISOString(),
   });
-});
+};
+
+app.get("/", healthHandler);
+app.get("/api", healthHandler);
+app.get("/api/health", healthHandler);
 
 // ================= ROUTES =================
 
