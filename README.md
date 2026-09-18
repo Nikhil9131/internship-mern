@@ -78,26 +78,26 @@
 ```mermaid
 graph TD
     User["End User / Browser"]
-    subgraph Vercel_Cloud["Vercel Edge Network (Frontend)"]
-        VercelSPA["React 19 + Vite SPA<br/>sol-and-sands.vercel.app"]
-        VercelRewrite["vercel.json SPA Rewrites"]
+    subgraph Frontend["Vercel Edge Network"]
+        VercelSPA["React 19 Vite Client"]
+        Rewrites["vercel.json SPA Rewrites"]
     end
-    subgraph Render_Cloud["Render Cloud Platform (Backend)"]
-        API["Express.js REST API (Node.js 24)<br/>internship-mern.onrender.com"]
-        Auth["JWT Authentication & Security Middleware"]
-        RateLimit["Express Rate Limiter & Helmet"]
+    subgraph Backend["Render Cloud Web Service"]
+        API["Express.js REST API"]
+        Security["Rate Limiting & Helmet"]
+        Auth["JWT Authentication Middleware"]
     end
-    subgraph DB_Cloud["MongoDB Atlas"]
-        DB[("Cloud Database Cluster")]
+    subgraph Database["MongoDB Atlas"]
+        DB[("Database Cluster")]
     end
 
-    User -->|HTTPS Request| VercelSPA
-    VercelSPA --> VercelRewrite
-    VercelSPA -->|REST API Calls (Bearer JWT)| API
-    API --> RateLimit
-    RateLimit --> Auth
+    User -->|Visits Web App| VercelSPA
+    VercelSPA --- Rewrites
+    VercelSPA -->|HTTPS REST Calls with JWT| API
+    API --> Security
+    Security --> Auth
     Auth --> API
-    API -->|Mongoose ODM| DB
+    API -->|Mongoose ODM Queries| DB
 ```
 
 ---
