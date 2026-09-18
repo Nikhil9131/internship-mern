@@ -27,10 +27,25 @@ const env = require("./config/env");
 
 const app = express();
 
+// Trust reverse proxy (Render, Cloudflare, Heroku) so express-rate-limit and req.ip work correctly
+app.set("trust proxy", 1);
+
 // ================= MIDDLEWARE =================
 
-app.use(helmet());
-app.use(cors());
+app.use(
+  helmet({
+    crossOriginResourcePolicy: { policy: "cross-origin" },
+  })
+);
+
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
 app.use(
   express.json({
     limit: "10kb",

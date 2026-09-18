@@ -1,8 +1,25 @@
 import axios from "axios";
 
+const getBaseUrl = () => {
+  // 1. Explicit environment variable
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL;
+  }
+  // 2. If running on deployed host (not localhost), use live Render backend
+  if (
+    typeof window !== "undefined" &&
+    window.location.hostname !== "localhost" &&
+    window.location.hostname !== "127.0.0.1"
+  ) {
+    return "https://internship-mern.onrender.com/api";
+  }
+  // 3. Localhost fallback
+  return "http://localhost:5001/api";
+};
+
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "http://localhost:5001/api",
-  timeout: 15000,
+  baseURL: getBaseUrl(),
+  timeout: 60000,
   headers: {
     "Content-Type": "application/json",
   },
